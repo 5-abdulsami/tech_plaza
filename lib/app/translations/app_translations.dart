@@ -1,0 +1,158 @@
+import 'package:get/get.dart';
+
+class AppTranslations extends Translations {
+  @override
+  Map<String, Map<String, String>> get keys => {
+    'en_US': {
+      // Common
+      'app_name': 'TechPlaza',
+      'welcome': 'Welcome',
+      'continue': 'Continue',
+      'cancel': 'Cancel',
+      'save': 'Save',
+      'delete': 'Delete',
+      'edit': 'Edit',
+      'search': 'Search',
+      'filter': 'Filter',
+      'loading': 'Loading...',
+      'error': 'Error',
+      'success': 'Success',
+      'retry': 'Retry',
+      'back': 'Back',
+      'next': 'Next',
+      'done': 'Done',
+      'yes': 'Yes',
+      'no': 'No',
+
+      // Auth
+      'login': 'Login',
+      'register': 'Register',
+      'logout': 'Logout',
+      'email': 'Email',
+      'password': 'Password',
+      'phone': 'Phone Number',
+      'name': 'Full Name',
+      'cnic': 'CNIC Number',
+      'role_selection': 'Select Your Role',
+      'customer': 'Customer',
+      'shop_owner': 'Shop Owner',
+      'upload_cnic': 'Upload CNIC',
+      'cnic_required': 'CNIC is required for shop owners',
+
+      // Customer
+      'browse_products': 'Browse Products',
+      'select_plaza': 'Select Plaza',
+      'favorites': 'Favorites',
+      'chat': 'Chat',
+      'profile': 'Profile',
+      'settings': 'Settings',
+      'product_details': 'Product Details',
+      'price': 'Price',
+      'description': 'Description',
+      'contact_seller': 'Contact Seller',
+
+      // Shop Owner
+      'dashboard': 'Dashboard',
+      'add_product': 'Add Product',
+      'my_products': 'My Products',
+      'analytics': 'Analytics',
+      'shop_profile': 'Shop Profile',
+      'payment_proof': 'Payment Proof',
+      'subscription': 'Subscription',
+      'listing_limit': 'Listing Limit',
+      'upload_payment': 'Upload Payment Proof',
+
+      // Theme & Language
+      'theme': 'Theme',
+      'language': 'Language',
+      'light_theme': 'Light',
+      'dark_theme': 'Dark',
+      'system_theme': 'System',
+      'english': 'English',
+      'urdu': 'اردو',
+
+      'appearance': 'Appearance',
+      'account': 'Account',
+      'actions': 'Actions',
+      'logout_confirmation': 'Are you sure you want to logout?',
+      'apply': 'Apply',
+      'home': 'Home',
+    },
+
+    'ur_PK': {
+      // Common
+      'app_name': 'ٹیک پلازہ',
+      'welcome': 'خوش آمدید',
+      'continue': 'جاری رکھیں',
+      'cancel': 'منسوخ',
+      'save': 'محفوظ کریں',
+      'delete': 'حذف کریں',
+      'edit': 'تبدیل کریں',
+      'search': 'تلاش',
+      'filter': 'فلٹر',
+      'loading': 'لوڈ ہو رہا ہے...',
+      'error': 'خرابی',
+      'success': 'کامیابی',
+      'retry': 'دوبارہ کوشش',
+      'back': 'واپس',
+      'next': 'اگلا',
+      'done': 'مکمل',
+      'yes': 'ہاں',
+      'no': 'نہیں',
+
+      // Auth
+      'login': 'لاگ ان',
+      'register': 'رجسٹر',
+      'logout': 'لاگ آؤٹ',
+      'email': 'ای میل',
+      'password': 'پاس ورڈ',
+      'phone': 'فون نمبر',
+      'name': 'پورا نام',
+      'cnic': 'شناختی کارڈ نمبر',
+      'role_selection': 'اپنا کردار منتخب کریں',
+      'customer': 'خریدار',
+      'shop_owner': 'دکاندار',
+      'upload_cnic': 'شناختی کارڈ اپ لوڈ کریں',
+      'cnic_required': 'دکانداروں کے لیے شناختی کارڈ ضروری ہے',
+
+      // Customer
+      'browse_products': 'مصنوعات دیکھیں',
+      'select_plaza': 'پلازہ منتخب کریں',
+      'favorites': 'پسندیدہ',
+      'chat': 'چیٹ',
+      'profile': 'پروفائل',
+      'settings': 'سیٹنگز',
+      'product_details': 'مصنوعات کی تفصیلات',
+      'price': 'قیمت',
+      'description': 'تفصیل',
+      'contact_seller': 'بیچنے والے سے رابطہ',
+
+      // Shop Owner
+      'dashboard': 'ڈیش بورڈ',
+      'add_product': 'مصنوعات شامل کریں',
+      'my_products': 'میری مصنوعات',
+      'analytics': 'تجزیات',
+      'shop_profile': 'دکان کا پروفائل',
+      'payment_proof': 'ادائیگی کا ثبوت',
+      'subscription': 'سبسکرپشن',
+      'listing_limit': 'فہرست کی حد',
+      'upload_payment': 'ادائیگی کا ثبوت اپ لوڈ کریں',
+
+      // Theme & Language
+      'theme': 'تھیم',
+      'language': 'زبان',
+      'light_theme': 'روشن',
+      'dark_theme': 'تاریک',
+      'system_theme': 'سسٹم',
+      'english': 'English',
+      'urdu': 'اردو',
+
+      'appearance': 'ظاہری شکل',
+      'account': 'اکاؤنٹ',
+      'actions': 'اعمال',
+      'logout_confirmation': 'کیا آپ واقعی لاگ آؤٹ کرنا چاہتے ہیں؟',
+      'apply': 'لاگو کریں',
+      'home': 'گھر',
+    },
+  };
+}
