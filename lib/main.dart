@@ -22,10 +22,13 @@ void main() async {
     anonKey: AppConstants.supabaseAnonKey,
   );
 
-  // Initialize controllers
+  // Initialize and get controllers
   Get.put(ThemeController());
   Get.put(LanguageController());
-  Get.put(AuthController());
+  final authController = Get.put(AuthController()); // Get the instance
+
+  // Wait for AuthController to be ready
+  await authController.initializeAuth();
 
   // Set system UI overlay style
   SystemChrome.setSystemUIOverlayStyle(
@@ -54,10 +57,10 @@ class TechPlazaApp extends StatelessWidget {
         // Theme
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
-        themeMode: themeController.themeMode.value,
+        themeMode: themeController.themeMode,
 
         // Localization
-        locale: languageController.currentLocale.value,
+        locale: languageController.currentLocale,
         fallbackLocale: const Locale('en', 'US'),
         translations: AppTranslations(),
         localizationsDelegates: const [

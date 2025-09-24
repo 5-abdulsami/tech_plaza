@@ -4,7 +4,6 @@ import '../../controllers/customer_controller.dart';
 import '../../controllers/auth_controller.dart';
 import '../../routes/app_routes.dart';
 import '../../widgets/product_card.dart';
-import '../../widgets/shop_card.dart';
 
 class CustomerHomeView extends GetView<CustomerController> {
   const CustomerHomeView({super.key});

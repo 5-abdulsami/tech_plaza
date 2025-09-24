@@ -1,5 +1,13 @@
 import 'package:get/get.dart';
 import '../bindings/cusstomer_binding.dart';
+import '../views/customer/customer_profile_view.dart';
+import '../views/customer/favorites_view.dart';
+import '../views/customer/search_view.dart';
+import '../views/shop/edit_product_view.dart';
+import '../views/shop/payment_proof_view.dart';
+import '../views/shop/product_list_view.dart';
+import '../views/shop/shop_analytics_view.dart';
+import '../views/shop/shop_profile_view.dart';
 import 'app_routes.dart';
 
 // Import all views
@@ -76,6 +84,21 @@ class AppPages {
       page: () => const ChatListView(),
       binding: CustomerBinding(),
     ),
+    GetPage(
+      name: AppRoutes.search,
+      page: () => const SearchView(),
+      binding: CustomerBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.favorites,
+      page: () => const FavoritesView(),
+      binding: CustomerBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.customerProfile,
+      page: () => const CustomerProfileView(),
+      binding: CustomerBinding(),
+    ),
 
     // Shop Owner Routes
     GetPage(
@@ -86,6 +109,37 @@ class AppPages {
     GetPage(
       name: AppRoutes.addProduct,
       page: () => const AddProductView(),
+      binding: ShopBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.productList,
+      page: () => const ProductListView(),
+      binding: ShopBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.editProduct,
+      page: () => const EditProductView(),
+      binding: ShopBinding(),
+    ),
+
+    GetPage(
+      name: AppRoutes.settings,
+      page: () => const SettingsView(),
+      binding: AuthBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.paymentProof,
+      page: () => const PaymentProofView(),
+      binding: ShopBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.shopAnalytics,
+      page: () => const ShopAnalyticsView(),
+      binding: ShopBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.shopProfile,
+      page: () => const ShopProfileView(),
       binding: ShopBinding(),
     ),
 

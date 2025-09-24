@@ -1,7 +1,8 @@
 class AppConstants {
   // Supabase Configuration
-  static const String supabaseUrl = 'YOUR_SUPABASE_URL';
-  static const String supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
+  static const String supabaseUrl = 'https://mqfsvfbluboixubxwtju.supabase.co';
+  static const String supabaseAnonKey =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xZnN2ZmJsdWJvaXh1Ynh3dGp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg2NDE0ODgsImV4cCI6MjA3NDIxNzQ4OH0.FGkPO9v_A2TtMuLqHw149qe_xpZTTESSYNF48QVDROw';
 
   // App Configuration
   static const String appName = 'TechPlaza';

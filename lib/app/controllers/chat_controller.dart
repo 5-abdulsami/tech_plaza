@@ -52,24 +52,30 @@ class ChatController extends GetxController {
     // Subscribe to messages
     _messagesSubscription = Supabase.instance.client
         .channel('messages')
+        // listen to inserts where current user is the sender
         .onPostgresChanges(
           event: PostgresChangeEvent.insert,
           schema: 'public',
           table: 'messages',
           filter: PostgresChangeFilter(
-            type: PostgresChangeFilterType.or,
-            filters: [
-              PostgresChangeFilter(
-                type: PostgresChangeFilterType.eq,
-                column: 'sender_id',
-                value: userId,
-              ),
-              PostgresChangeFilter(
-                type: PostgresChangeFilterType.eq,
-                column: 'receiver_id',
-                value: userId,
-              ),
-            ],
+            type: PostgresChangeFilterType.eq,
+            column: 'sender_id',
+            value: userId,
+          ),
+          callback: (payload) {
+            final message = MessageModel.fromJson(payload.newRecord);
+            _handleNewMessage(message);
+          },
+        )
+        // and also when current user is the receiver
+        .onPostgresChanges(
+          event: PostgresChangeEvent.insert,
+          schema: 'public',
+          table: 'messages',
+          filter: PostgresChangeFilter(
+            type: PostgresChangeFilterType.eq,
+            column: 'receiver_id',
+            value: userId,
           ),
           callback: (payload) {
             final message = MessageModel.fromJson(payload.newRecord);

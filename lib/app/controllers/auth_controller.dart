@@ -17,6 +17,10 @@ class AuthController extends GetxController {
   final RxBool _isLoading = false.obs;
   final RxBool _isAuthenticated = false.obs;
 
+  // Add an RxBool to signal when the controller's initialization is complete
+  final RxBool _isInitialized = false.obs;
+  bool get isInitialized => _isInitialized.value;
+
   // Getters
   UserModel? get currentUser => _currentUser.value;
   ShopModel? get currentShop => _currentShop.value;
@@ -28,14 +32,12 @@ class AuthController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _initializeAuth();
+    // _initializeAuth();
   }
 
-  Future<void> _initializeAuth() async {
+  Future<void> initializeAuth() async {
     try {
       _isLoading.value = true;
-
-      // Check if user is already logged in
       final session = Supabase.instance.client.auth.currentSession;
       if (session != null) {
         await _loadUserData(session.user.id);
@@ -44,6 +46,7 @@ class AuthController extends GetxController {
       debugPrint('Auth initialization error: $e');
     } finally {
       _isLoading.value = false;
+      _isInitialized.value = true; // Signal that initialization is complete
     }
   }
 

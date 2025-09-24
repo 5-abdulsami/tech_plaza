@@ -109,10 +109,12 @@ class ChatService {
   Future<int> getUnreadCount(String userId) async {
     final response = await _client
         .from('messages')
-        .select('id', const FetchOptions(count: CountOption.exact))
+        .select('id')
         .eq('receiver_id', userId)
         .eq('is_read', false);
 
-    return response.count ?? 0;
+    // response is a List<dynamic> in latest SDK
+    final list = (response as List);
+    return list.length;
   }
 }

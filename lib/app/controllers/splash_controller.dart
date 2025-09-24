@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/auth_controller.dart';
 import '../models/user_model.dart';
@@ -16,21 +17,32 @@ class SplashController extends GetxController {
     // Wait for minimum splash duration
     await Future.delayed(const Duration(seconds: 2));
 
-    // Check authentication status
-    if (_authController.isAuthenticated) {
+    // Ensure AuthController is fully initialized
+    if (!_authController.isInitialized) {
+      await _authController.initializeAuth();
+    }
+
+    // Now safely check authentication
+    if (_authController.isAuthenticated &&
+        _authController.currentUser != null) {
       _navigateBasedOnRole();
     } else {
       Get.offAllNamed(AppRoutes.roleSelection);
     }
+    debugPrint(
+      "SplashController: isAuthenticated=${_authController.isAuthenticated}, user=${_authController.currentUser}",
+    );
   }
 
   void _navigateBasedOnRole() {
-    if (_authController.currentUser == null) {
+    final user = _authController.currentUser;
+
+    if (user == null) {
       Get.offAllNamed(AppRoutes.roleSelection);
       return;
     }
 
-    switch (_authController.currentUser!.role) {
+    switch (user.role) {
       case UserRole.customer:
         Get.offAllNamed(AppRoutes.customerHome);
         break;

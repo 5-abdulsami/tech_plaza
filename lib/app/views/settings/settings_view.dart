@@ -71,15 +71,15 @@ class SettingsView extends GetView<AuthController> {
                       leading: CircleAvatar(
                         backgroundColor: Theme.of(context).primaryColor,
                         child: Text(
-                          controller.currentUser.value?.name
+                          controller.currentUser?.name
                                   ?.substring(0, 1)
                                   .toUpperCase() ??
                               'U',
                           style: const TextStyle(color: Colors.white),
                         ),
                       ),
-                      title: Text(controller.currentUser.value?.name ?? 'User'),
-                      subtitle: Text(controller.currentUser.value?.email ?? ''),
+                      title: Text(controller.currentUser?.name ?? 'User'),
+                      subtitle: Text(controller.currentUser?.email ?? ''),
                     ),
                   ),
                 ],
