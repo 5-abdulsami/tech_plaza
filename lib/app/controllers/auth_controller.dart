@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -107,6 +109,7 @@ class AuthController extends GetxController {
     String? cnic,
   }) async {
     try {
+      log("----- Inside try block of register");
       _isLoading.value = true;
 
       // Validate CNIC for shop owners
@@ -121,10 +124,12 @@ class AuthController extends GetxController {
         return false;
       }
 
+      log("----- Reached signUpWithEmail method of authService");
       final response = await _authService.signUpWithEmail(
         email: email,
         password: password,
       );
+      log("----- Response of signUpWithEmail :  $response");
 
       if (response.user != null) {
         // Create user profile
@@ -141,6 +146,7 @@ class AuthController extends GetxController {
         await _authService.createUserProfile(user);
         _currentUser.value = user;
         _isAuthenticated.value = true;
+        log("----- User profile created:  ${user.toJson()}");
 
         // Navigate to CNIC upload if shop owner
         if (role == UserRole.shopOwner) {
@@ -268,7 +274,12 @@ class AuthController extends GetxController {
   }
 
   void _navigateBasedOnRole() {
-    if (currentUser == null) return;
+    if (currentUser == null) {
+      log(
+        "----- Current user is null in _navigateBasedOnRole in authController",
+      );
+      return;
+    }
 
     switch (currentUser!.role) {
       case UserRole.customer:
@@ -286,6 +297,9 @@ class AuthController extends GetxController {
         }
         Get.offAllNamed(AppRoutes.shopDashboard);
         break;
+      case UserRole.admin:
+        // TODO: Handle this case.
+        throw UnimplementedError();
     }
   }
 

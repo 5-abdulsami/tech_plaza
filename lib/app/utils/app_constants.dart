@@ -1,8 +1,8 @@
 class AppConstants {
   // Supabase Configuration
-  static const String supabaseUrl = 'https://mqfsvfbluboixubxwtju.supabase.co';
+  static const String supabaseUrl = 'https://kvixkbhmwdhqvbzrvfzh.supabase.co';
   static const String supabaseAnonKey =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xZnN2ZmJsdWJvaXh1Ynh3dGp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg2NDE0ODgsImV4cCI6MjA3NDIxNzQ4OH0.FGkPO9v_A2TtMuLqHw149qe_xpZTTESSYNF48QVDROw';
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2aXhrYmhtd2RocXZienJ2ZnpoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg3NzYxOTYsImV4cCI6MjA3NDM1MjE5Nn0.FpDWxCW8buuuZDdQbNfIsR6CEZ9K55eDeSAaMuXF3mU';
 
   // App Configuration
   static const String appName = 'TechPlaza';

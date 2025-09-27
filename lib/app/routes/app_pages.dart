@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import '../bindings/cusstomer_binding.dart';
+import '../bindings/chat_binding.dart';
+import '../bindings/customer_binding.dart';
 import '../views/customer/customer_profile_view.dart';
 import '../views/customer/favorites_view.dart';
 import '../views/customer/search_view.dart';
@@ -120,6 +121,11 @@ class AppPages {
       name: AppRoutes.editProduct,
       page: () => const EditProductView(),
       binding: ShopBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.chatList,
+      page: () => const ChatListView(),
+      binding: ChatBinding(),
     ),
 
     GetPage(

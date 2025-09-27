@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'app/controllers/chat_controller.dart';
 import 'app/routes/app_pages.dart';
 import 'app/routes/app_routes.dart';
 import 'app/controllers/theme_controller.dart';
@@ -26,6 +27,7 @@ void main() async {
   Get.put(ThemeController());
   Get.put(LanguageController());
   final authController = Get.put(AuthController()); // Get the instance
+  Get.put(ChatController());
 
   // Wait for AuthController to be ready
   await authController.initializeAuth();
@@ -40,6 +42,9 @@ void main() async {
 
   runApp(const TechPlazaApp());
 }
+
+double screenWidth = Get.width;
+double screenHeight = Get.height;
 
 class TechPlazaApp extends StatelessWidget {
   const TechPlazaApp({super.key});

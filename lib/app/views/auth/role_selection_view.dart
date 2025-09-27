@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tech_plaza/main.dart';
 import '../../controllers/auth_controller.dart';
 import '../../controllers/language_controller.dart';
 import '../../routes/app_routes.dart';
@@ -13,10 +14,10 @@ class RoleSelectionView extends GetView<AuthController> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: EdgeInsets.all(screenWidth * 0.05),
           child: Column(
             children: [
-              const SizedBox(height: 40),
+              SizedBox(height: screenHeight * 0.05),
 
               // Header
               Text(
@@ -27,7 +28,7 @@ class RoleSelectionView extends GetView<AuthController> {
                 ),
               ),
 
-              const SizedBox(height: 8),
+              SizedBox(height: screenHeight * 0.01),
 
               Text(
                 'role_selection'.tr,
@@ -37,7 +38,7 @@ class RoleSelectionView extends GetView<AuthController> {
                 textAlign: TextAlign.center,
               ),
 
-              const SizedBox(height: 60),
+              SizedBox(height: screenHeight * 0.04),
 
               // Role Cards
               Expanded(
@@ -51,7 +52,7 @@ class RoleSelectionView extends GetView<AuthController> {
                       onTap: () => _navigateToAuth(UserRole.customer),
                     ),
 
-                    const SizedBox(height: 24),
+                    SizedBox(height: screenHeight * 0.05),
 
                     _buildRoleCard(
                       title: 'shop_owner'.tr,
@@ -63,7 +64,7 @@ class RoleSelectionView extends GetView<AuthController> {
                 ),
               ),
 
-              const SizedBox(height: 40),
+              SizedBox(height: screenHeight * 0.05),
 
               // Language Toggle
               Row(
@@ -104,37 +105,37 @@ class RoleSelectionView extends GetView<AuthController> {
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
         child: Padding(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.all(screenWidth * 0.05),
           child: Column(
             children: [
               Container(
-                width: 80,
-                height: 80,
+                width: screenWidth * 0.18,
+                height: screenHeight * 0.09,
                 decoration: BoxDecoration(
                   color: Get.theme.colorScheme.primary.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Icon(
                   icon,
-                  size: 40,
+                  size: screenWidth * 0.1,
                   color: Get.theme.colorScheme.primary,
                 ),
               ),
 
-              const SizedBox(height: 16),
+              SizedBox(height: screenHeight * 0.02),
 
               Text(
                 title,
-                style: Get.textTheme.headlineSmall?.copyWith(
+                style: Get.textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.w600,
                 ),
               ),
 
-              const SizedBox(height: 8),
+              SizedBox(height: screenHeight * 0.01),
 
               Text(
                 subtitle,
-                style: Get.textTheme.bodyMedium?.copyWith(
+                style: Get.textTheme.bodySmall?.copyWith(
                   color: Get.theme.colorScheme.onSurface.withOpacity(0.7),
                 ),
                 textAlign: TextAlign.center,

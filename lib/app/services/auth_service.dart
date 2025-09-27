@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../models/user_model.dart';
@@ -21,7 +22,25 @@ class AuthService {
     required String email,
     required String password,
   }) async {
-    return await _client.auth.signUp(email: email, password: password);
+    log("----- Inside signUpWithEmail method of AuthService");
+    try {
+      final response = await _client.auth.signUp(
+        email: email,
+        password: password,
+      );
+
+      if (response.user != null) {
+        log("----- Signup Success! User ID: ${response.user!.id}");
+      } else {
+        log("----- Signup response received but user is null");
+      }
+
+      return response;
+    } catch (e, stack) {
+      log("----- Signup Error: $e");
+      log("----- Stack Trace: $stack");
+      return AuthResponse(user: null, session: null);
+    }
   }
 
   Future<void> signOut() async {
@@ -44,7 +63,14 @@ class AuthService {
   }
 
   Future<void> createUserProfile(UserModel user) async {
-    await _client.from('users').insert(user.toJson());
+    await _client.from('users').insert({
+      'id': user.id,
+      'name': user.name,
+      'email': user.email,
+      'phone': user.phone,
+      'role': user.role.toString().split('.').last,
+      'cnic': user.cnic,
+    });
   }
 
   Future<void> updateUserProfile(UserModel user) async {

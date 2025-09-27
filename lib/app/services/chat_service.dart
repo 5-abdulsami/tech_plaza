@@ -1,4 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import '../models/chat_model.dart';
 import '../models/message_model.dart';
 
 class ChatService {

@@ -49,6 +49,9 @@ class SplashController extends GetxController {
       case UserRole.shopOwner:
         Get.offAllNamed(AppRoutes.shopDashboard);
         break;
+      case UserRole.admin:
+        // TODO: Handle this case.
+        throw UnimplementedError();
     }
   }
 }
