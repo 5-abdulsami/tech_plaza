@@ -112,7 +112,7 @@ class RegisterView extends GetView<AuthController> {
                 const SizedBox(height: 16),
 
                 // CNIC Field (only for shop owners)
-                if (role == UserRole.shopOwner)
+                if (role == UserRole.shop_owner)
                   Column(
                     children: [
                       TextFormField(

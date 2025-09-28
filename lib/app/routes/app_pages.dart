@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:tech_plaza/app/views/shop/shop_chat_view.dart';
 import '../bindings/chat_binding.dart';
 import '../bindings/customer_binding.dart';
 import '../views/customer/customer_profile_view.dart';
@@ -133,6 +134,17 @@ class AppPages {
       page: () => const SettingsView(),
       binding: AuthBinding(),
     ),
+    GetPage(
+      name: AppRoutes.shopSettings,
+      page: () => const SettingsView(),
+      binding: ShopBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.shopChat,
+      page: () => const ShopChatView(),
+      binding: ShopBinding(),
+    ),
+
     GetPage(
       name: AppRoutes.paymentProof,
       page: () => const PaymentProofView(),

@@ -28,7 +28,7 @@ class AuthController extends GetxController {
   ShopModel? get currentShop => _currentShop.value;
   bool get isLoading => _isLoading.value;
   bool get isAuthenticated => _isAuthenticated.value;
-  bool get isShopOwner => currentUser?.role == UserRole.shopOwner;
+  bool get isShopOwner => currentUser?.role == UserRole.shop_owner;
   bool get isCustomer => currentUser?.role == UserRole.customer;
 
   @override
@@ -60,7 +60,7 @@ class AuthController extends GetxController {
         _isAuthenticated.value = true;
 
         // Load shop data if user is shop owner
-        if (userData.role == UserRole.shopOwner) {
+        if (userData.role == UserRole.shop_owner) {
           final shopData = await _authService.getShopByOwnerId(userId);
           _currentShop.value = shopData;
         }
@@ -113,7 +113,7 @@ class AuthController extends GetxController {
       _isLoading.value = true;
 
       // Validate CNIC for shop owners
-      if (role == UserRole.shopOwner && (cnic == null || cnic.isEmpty)) {
+      if (role == UserRole.shop_owner && (cnic == null || cnic.isEmpty)) {
         Get.snackbar(
           'error'.tr,
           'cnic_required'.tr,
@@ -149,7 +149,7 @@ class AuthController extends GetxController {
         log("----- User profile created:  ${user.toJson()}");
 
         // Navigate to CNIC upload if shop owner
-        if (role == UserRole.shopOwner) {
+        if (role == UserRole.shop_owner) {
           Get.toNamed(AppRoutes.cnicUpload);
         } else {
           _navigateBasedOnRole();
@@ -285,7 +285,7 @@ class AuthController extends GetxController {
       case UserRole.customer:
         Get.offAllNamed(AppRoutes.customerHome);
         break;
-      case UserRole.shopOwner:
+      case UserRole.shop_owner:
         if (currentShop?.status == ShopStatus.pending) {
           Get.snackbar(
             'info'.tr,

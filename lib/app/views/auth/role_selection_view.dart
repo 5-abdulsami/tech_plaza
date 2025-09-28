@@ -58,7 +58,7 @@ class RoleSelectionView extends GetView<AuthController> {
                       title: 'shop_owner'.tr,
                       subtitle: 'List your products and connect with customers',
                       icon: Icons.storefront_outlined,
-                      onTap: () => _navigateToAuth(UserRole.shopOwner),
+                      onTap: () => _navigateToAuth(UserRole.shop_owner),
                     ),
                   ],
                 ),

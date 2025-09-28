@@ -75,14 +75,14 @@ class UserModel {
   }
 }
 
-enum UserRole { customer, shopOwner, admin }
+enum UserRole { customer, shop_owner, admin }
 
 extension UserRoleExtension on UserRole {
   String get displayName {
     switch (this) {
       case UserRole.customer:
         return 'Customer';
-      case UserRole.shopOwner:
+      case UserRole.shop_owner:
         return 'Shop Owner';
       case UserRole.admin:
         return 'Admin';
